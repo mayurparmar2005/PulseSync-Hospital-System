@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Hospital Monitor | PulseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reception.css">
+</head>
+<body>
+
+    <nav class="navbar reception-nav">
+        <div class="logo">⚡ PulseSync <span class="badge">ADMIN</span></div>
+        <div class="nav-links u-flex u-gap-15 u-align-center" style="margin-left: 30px;">
+            <a href="rc_dashboard.html" class="active">📝 Registration</a>
+            <a href="reception-monitor.html">📊 Live Monitor</a>
+            <a href="reception-records.html">📂 All Records</a>
+            <a href="manage-doctors.html">👨‍⚕️ Staff Directory</a>
+        </div>
+        <a href="#" onclick="doAdminLogout()" class="btn-logout">Logout ➤</a>
+    </nav>
+
+    <div class="u-p-20">
+        <h2 class="u-mt-20">🏥 Live Doctor Status</h2>
+        <div class="monitor-grid" id="monitorList">
+            <p class="u-text-muted">Loading Hospital Status...</p>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/reception.js"></script>
+</body>
+</html>

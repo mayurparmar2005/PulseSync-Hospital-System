@@ -1,0 +1,215 @@
+/* =========================================
+   FIND A DOCTOR PAGE
+   ========================================= */
+body {
+    background: #f0f4f8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-header {
+    text-align: center;
+    padding: 80px 20px 30px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Search bar */
+.search-wrap {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.search-wrap input {
+    width: 100%;
+    padding: 14px 50px 14px 20px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.search-wrap input:focus {
+    border-color: #0056b3;
+}
+
+.search-wrap .clear-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+/* Filter pills */
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px 30px;
+}
+
+.pill {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 2px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.pill:hover {
+    border-color: #0056b3;
+    color: #0056b3;
+}
+
+.pill.active {
+    background: #0056b3;
+    border-color: #0056b3;
+    color: white;
+}
+
+/* Doctor grid */
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 0 40px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.doc-card {
+    background: white;
+    padding: 28px 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    border-top: 4px solid #0056b3;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.doc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.doc-avatar {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.doc-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.doc-spec {
+    color: #0056b3;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+/* Star Rating Widget */
+.stars-display {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.stars-display .star {
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+    color: #ddd;
+    line-height: 1;
+}
+
+.stars-display .star.filled {
+    color: #f59e0b;
+}
+
+.stars-display .star:hover {
+    transform: scale(1.3);
+}
+
+.rating-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+/* Status badge */
+.status-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.status-available { background: #d4edda; color: #155724; }
+.status-break { background: #fff3cd; color: #856404; }
+.status-offline { background: #f8d7da; color: #721c24; }
+
+.btn-book {
+    display: block;
+    padding: 10px 20px;
+    background: #0056b3;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-book:hover {
+    background: #004494;
+}
+
+.rating-submitted {
+    font-size: 0.8rem;
+    color: #28a745;
+    font-weight: 600;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+    grid-column: 1/-1;
+}

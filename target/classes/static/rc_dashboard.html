@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reception Desk | PulseSync</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reception.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar reception-nav">
+        <div class="logo">⚡ PulseSync <span class="badge">ADMIN</span></div>
+        <div class="nav-links u-flex u-gap-15 u-align-center" style="margin-left: 30px;">
+            <a href="rc_dashboard.html" class="active">📝 Registration</a>
+            <a href="reception-monitor.html">📊 Live Monitor</a>
+            <a href="reception-records.html">📂 All Records</a>
+            <a href="manage-doctors.html">👨‍⚕️ Staff Directory</a>
+        </div>
+        <a href="#" onclick="doAdminLogout()" class="btn-logout">Logout ➤</a>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="form-section">
+            <div style="display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                <button id="tabExisting" onclick="switchRegTab('existing')" style="flex: 1; padding: 10px; background: none; border: none; font-weight: bold; cursor: pointer; color: #0056b3; border-bottom: 3px solid #0056b3;">🔍 Existing Patient</button>
+                <button id="tabNew" onclick="switchRegTab('new')" style="flex: 1; padding: 10px; background: none; border: none; font-weight: bold; cursor: pointer; color: #888;">➕ New Patient</button>
+            </div>
+
+            <div id="formExisting">
+                <h2>Quick Queue Booking</h2>
+                <p>Add an existing PulseSync patient directly to a queue.</p>
+                
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" id="exMobile" placeholder="Patient Mobile Number" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    <button type="button" onclick="searchPatient()" style="background: #333; color: white; border: none; padding: 0 20px; border-radius: 8px; cursor: pointer;">Search</button>
+                </div>
+                
+                <div id="exPatientDetails" class="u-hidden" style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #90caf9;">
+                    <strong style="color: #0056b3;">✅ Patient Found: </strong> <span id="exDisplayInfo" style="font-weight: bold; color: #333;"></span>
+                </div>
+
+                <div class="input-group u-mt-15">
+                    <label>Assign to Doctor</label>
+                    <select id="exDoctorSelect" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;"></select>
+                </div>
+                <div class="input-group u-mt-15">
+                    <label>Primary Symptoms</label>
+                    <input type="text" id="exSymptoms" placeholder="e.g. Fever, Headache" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                </div>
+                <button type="button" onclick="bookExistingPatient()" class="btn-admin u-mt-20">Book Queue Slot</button>
+            </div>
+
+            <div id="formNew" class="u-hidden">
+                <h2>Register New Patient</h2>
+                <p>Create a PulseSync Health Passport & assign a queue.</p>
+                
+                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div class="input-group" style="flex: 2;"><label>Full Name</label><input type="text" id="pName" placeholder="e.g. John Doe"></div>
+                    <div class="input-group" style="flex: 1;"><label>Age</label><input type="number" id="pAge" placeholder="25"></div>
+                    <div class="input-group" style="flex: 1;">
+                        <label>Gender</label>
+                        <select id="pGender" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                            <option>Male</option><option>Female</option><option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group"><label>Mobile Number</label><input type="text" id="pMobile" placeholder="e.g. 9876543210"></div>
+                <div class="input-group"><label>Assign Doctor</label><select id="doctorSelect" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;"></select></div>
+                <div class="input-group"><label>Symptoms</label><input type="text" id="pSymptoms" placeholder="e.g. Stomach pain"></div>
+
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <button type="button" onclick="registerAndBook()" class="btn-admin" style="background: #28a745;">Register & Book</button>
+                    <button type="button" onclick="generateCard()" class="btn-admin" style="background: #333;">Only Generate Card</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="card-preview">
+            <h3>Health Passport Preview</h3>
+            <div class="id-card" id="passportCard">
+                <div class="card-header">
+                    <span class="pulse-icon">⚡</span> PulseSync Health ID
+                </div>
+                <div class="card-body">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=PulseSync-User" id="previewQR" alt="QR">
+                    </div>
+                    <div class="details">
+                        <h3 id="cardName">Patient Name</h3>
+                        <p class="abha-text" id="cardAbha">ABHA: --</p>
+                        <div class="meta">
+                            <span id="cardAge">--</span> yrs | <span id="cardGender">--</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small>Emergency SOS Enabled</small>
+                </div>
+            </div>
+
+            <div id="tokenDisplay" class="u-hidden u-mt-20 u-w-full" style="max-width: 320px;">
+                <div class="token-box">
+                    <h4 style="margin:0; color:#555;">Live Token Assigned</h4>
+                    <span style="font-size: 3rem; font-weight: bold; color: #0056b3;" id="bigTokenNumber">#--</span>
+                    <p style="margin:0; color:green;">Successfully added to Queue!</p>
+                </div>
+            </div>
+        </div>
+
+            <div style="background: #e63946; color: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100;">
+                <div>
+                    <h3 style="margin: 0; font-size: 1.2rem;">🚑 ER Trauma Bypass</h3>
+                    <p style="margin: 0; font-size: 0.85rem; opacity: 0.9;">Bypass all queues. Immediately alert duty doctors for critical walk-ins.</p>
+                </div>
+                <button onclick="document.getElementById('erModal').style.display='flex'" style="background: white; color: #e63946; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                    🚨 Fast-Track Admit
+                </button>
+            </div>
+    </div>
+
+    <div id="erModal" class="modal-overlay">
+        <div class="modal-content" style="width: 450px; text-align: left; border-top: 8px solid #e63946;">
+            <span class="close-btn" onclick="document.getElementById('erModal').style.display='none'">&times;</span>
+            <h2 style="color: #e63946; margin-top: 0;">🚨 Emergency Admission</h2>
+            <p class="u-text-muted u-mb-20">Skip full registration. Assign immediate priority.</p>
+            
+            <div class="input-group">
+                <label>Patient Identifier (Optional)</label>
+                <input type="text" id="erPatientDesc" placeholder="e.g. Unknown Male, ~40s" style="border-color: #ffcccc;">
+            </div>
+            
+            <div class="input-group u-mt-15">
+                <label>Trauma Type / Condition</label>
+                <input type="text" id="erCondition" placeholder="e.g. Severe bleeding, Cardiac arrest" style="border-color: #ffcccc;">
+            </div>
+
+            <div class="input-group u-mt-15">
+                <label>Route to ER Doctor</label>
+                <select id="erDoctorSelect" style="width: 100%; padding: 12px; border: 1px solid #ffcccc; border-radius: 8px; background: #fff5f5;"></select>
+            </div>
+            
+            <button type="button" onclick="admitEmergency()" class="btn-admin u-mt-20" style="background: #e63946; font-size: 1.1rem; padding: 15px;">
+                ⚡ Trigger Code Red & Admit
+            </button>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script src="js/reception.js"></script>
+</body>
+</html>

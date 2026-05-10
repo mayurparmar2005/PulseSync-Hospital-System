@@ -1,0 +1,132 @@
+/* BACKGROUND SPLIT */
+.login-wrapper {
+    height: 100vh;
+    background: linear-gradient(135deg, #0056b3 50%, #f4f7f6 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px; /* Space for navbar */
+}
+
+/* THE CARD */
+.login-box {
+    background: white;
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* TABS */
+.role-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+    color: #0056b3;
+    border-bottom: 3px solid #0056b3;
+}
+
+.tab:hover {
+    color: #0056b3;
+}
+
+/* HEADINGS */
+.form-section h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-section p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* INPUTS */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+.btn-full {
+    width: 100%;
+    padding: 12px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-full:hover {
+    background-color: #003d80;
+}
+
+.btn-doctor {
+    background-color: #2d3436; /* Darker color for professional feel */
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.btn-outline-blue {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #0056b3;
+    color: #0056b3;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.signup-link a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
