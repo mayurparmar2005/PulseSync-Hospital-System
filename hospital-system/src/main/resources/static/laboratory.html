@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory & Diagnostics | PulseSync</title>
+    <link rel="stylesheet" href="css/style.css?v=2.0">
+    <link rel="stylesheet" href="css/laboratory.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">⚡ PulseSync</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctors.html">Our Specialists</a></li>
+            <li><a href="reception-login.html">Staff Portal</a></li> 
+        </ul>
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-login">Patient Login</a>
+        </div>
+    </nav>
+
+    <header class="lab-hero">
+        <div class="hero-content">
+            <h1>Advanced Diagnostics Center</h1>
+            <p>Precision testing. Rapid results. Seamless digital access.</p>
+        </div>
+    </header>
+
+    <div class="lab-container">
+        
+        <div class="lab-services">
+            <h2 style="color: #0056b3; margin-bottom: 20px;">Our Testing Facilities</h2>
+            
+            <div class="service-row">
+                <div class="icon-box">🩸</div>
+                <div class="service-details">
+                    <h3>Clinical Pathology</h3>
+                    <p>Comprehensive blood work, lipid profiles, and metabolic panels processed with automated precision.</p>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="icon-box">🩻</div>
+                <div class="service-details">
+                    <h3>Radiology & Imaging</h3>
+                    <p>High-resolution MRI, CT Scans, and digital X-Rays with 24-hour radiologist review.</p>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="icon-box">🧬</div>
+                <div class="service-details">
+                    <h3>Molecular Diagnostics</h3>
+                    <p>Advanced RT-PCR, genetic sequencing, and specialized immunological testing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-portal">
+            <div class="portal-card">
+                <div style="font-size: 3rem; margin-bottom: 10px;">📄</div>
+                <h2 style="margin-bottom: 10px;">My Online Reports</h2>
+                <p style="color: #666; margin-bottom: 25px; font-size: 0.95rem;">
+                    Access your verified laboratory results securely. Reports are typically available within 12-24 hours of sample collection.
+                </p>
+                
+                <div class="input-group">
+                    <label>Patient Mobile Number</label>
+                    <input type="text" id="reportMobile" placeholder="e.g. 9876543210" maxlength="10">
+                </div>
+                
+                <button onclick="fetchMyReports()" class="btn-fetch-report">
+                    Securely View Reports ➜
+                </button>
+                
+                <p style="margin-top: 15px; font-size: 0.8rem; color: #888;">
+                    Requires PulseSync Patient Account. <a href="login.html" style="color: #6f42c1; font-weight: bold;">Login here</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PulseSync Healthcare. NABL & ISO Certified Laboratory.</p>
+    </footer>
+
+    <script src="js/laboratory.js?v=1.0"></script>
+</body>
+</html>

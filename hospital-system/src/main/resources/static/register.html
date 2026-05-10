@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | PulseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css"> </head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration:none; color:inherit;">
+                <span style="color:#0056b3; font-weight:bold;">⚡ PulseSync</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="form-section">
+                <h2>Create an Account</h2>
+                <p>Register to generate your ABHA-linked Health ID.</p>
+
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="rName" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+
+                    <div class="row u-flex u-gap-15">
+                        <div class="input-group u-w-full">
+                            <label>Age</label>
+                            <input type="number" id="rAge" placeholder="25" required>
+                        </div>
+                        <div class="input-group u-w-full">
+                            <label>Gender</label>
+                            <select id="rGender" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="rMobile" placeholder="9876543210" pattern="[0-9]{10}" maxlength="10" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Create Password</label>
+                        <input type="password" id="rPassword" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="error-msg" id="errorMsg" style="display: none;"></div>
+                    <div class="success-msg" id="successMsg" style="display: none; padding: 10px; border-radius: 6px; background: #d4edda; color: #155724; border-left: 3px solid #28a745; text-align: center; margin-top: 15px;"></div>
+
+                    <button type="submit" id="submitBtn" class="btn-full">Generate Health ID & Register</button>
+                </form>
+
+                <div class="signup-link">
+                    Already have an account? <a href="login.html">Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | PulseSync</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/p_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="pulse-icon">⚡</span> PulseSync
+        </div>
+        <div class="user-profile">
+            <span class="user-name" id="navPatientName">Loading...</span>
+            <div class="avatar" id="navAvatar">--</div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul id="nav-list">
+                <li class="active" onclick="showSection('home', this)">📊 Live Queue</li>
+                <li onclick="showSection('records', this)">📂 Medical Records</li>
+                <li onclick="showSection('appointments', this)">📅 Appointments</li>
+                <li onclick="showSection('settings', this)">⚙️ Settings</li>
+                <li onclick="logout()" class="u-logout-item u-pointer">🚪 Logout</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <!-- SECTION 1: Live Queue -->
+            <div id="home" class="content-section">
+                <div class="status-card" id="queueCard">
+                    <h2>Current Appointment</h2>
+                    <div id="loadingMsg" class="u-text-muted u-p-20">Loading your queue status...</div>
+                    <div class="queue-info u-hidden" id="queueInfo">
+                        <div class="token-box">
+                            <span class="label">Your Token</span>
+                            <span class="token-number" id="myToken">#--</span>
+                        </div>
+                        <div class="status-details">
+                            <p><strong id="myDoctorName">--</strong> (<span id="myDoctorSpec">--</span>)</p>
+                            <p>Current Serving: <span class="highlight" id="current-token">#--</span></p>
+                            <p>Patients Ahead: <span class="time" id="patientsAhead">--</span></p>
+                            <p id="statusMsg" style="font-weight:bold; margin-top:5px;"></p>
+                            <div class="progress-bar" id="progressBarContainer" style="display:none; margin-top:10px;">
+                                <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="noApptMsg" class="u-hidden u-p-20 u-text-dark-grey">
+                        <p>📋 No active appointment found for today.</p>
+                        <p class="u-text-small u-text-muted u-mt-10">Visit the reception desk to register.</p>
+                    </div>
+                </div>
+
+                <div class="action-grid">
+                    <div class="card action-card" onclick="alert('Visit the reception desk to register & book an appointment.')">
+                        <div class="icon">🔍</div>
+                        <h3>Book New</h3>
+                    </div>
+                    <div class="card action-card" onclick="openQRModal()">
+                        <div class="icon">🆔</div>
+                        <h3>Show QR ID</h3>
+                    </div>
+                    <div class="card action-card" style="border-left: 5px solid #e63946;" onclick="alert('🚨 For medical emergencies, call 112 immediately.')">
+                        <div class="icon">🚑</div>
+                        <h3>Emergency</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Medical Records -->
+            <div id="records" class="content-section u-hidden">
+                <h2>📂 My Visit History</h2>
+                <div class="history-list" id="historyList">
+                    <p class="u-text-muted">Loading history...</p>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Appointments -->
+            <div id="appointments" class="content-section u-hidden">
+                <h2>📅 All Appointments</h2>
+                <div id="allAppointmentsList" class="history-list">
+                    <p class="u-text-muted">Loading appointments...</p>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Settings -->
+            <div id="settings" class="content-section u-hidden">
+                <h2>⚙️ Account Settings</h2>
+                <form class="settings-form">
+                    <label>Full Name</label>
+                    <input type="text" id="settingName" value="--" disabled>
+                    <label>Mobile Number</label>
+                    <input type="text" id="settingMobile" value="--" disabled>
+                    <label>Age / Gender</label>
+                    <input type="text" id="settingAgeGender" value="--" disabled>
+                    <label>ABHA Health ID</label>
+                    <input type="text" id="settingAbha" value="Fetching..." disabled>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeQRModal()">&times;</span>
+            <h3>Scan for Instant Check-In</h3>
+            <img id="qrImage" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="QR Code">
+            <p>Show this to the receptionist.</p>
+        </div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/patient.js"></script>
+</body>
+</html>

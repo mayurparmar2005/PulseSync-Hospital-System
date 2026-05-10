@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find a specialist doctor at PulseSync hospital. Filter by specialization and view live ratings.">
+    <title>Find a Doctor | PulseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/doctors.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">⚡ PulseSync</a></div>
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-login">Login to Book</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Meet Our Specialists</h1>
+        <p>Top doctors available for online queue booking.</p>
+
+        <div class="search-wrap">
+            <input type="text" id="searchInput" placeholder="Search by name or specialization..." oninput="applyFilters()">
+            <button type="button" class="clear-btn" onclick="clearSearch()" title="Clear">✕</button>
+        </div>
+    </div>
+
+    <div class="filter-pills" id="filterPills">
+        <span class="pill active" onclick="filterBy(null, this)">All</span>
+    </div>
+
+    <div class="doctor-grid" id="doctorList">
+        <p style="color:#888; text-align:center;">Loading Specialists...</p>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/doctors.js"></script>
+
+</body>
+</html>

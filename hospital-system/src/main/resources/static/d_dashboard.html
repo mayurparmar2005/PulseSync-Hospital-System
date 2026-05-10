@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OPD Console | PulseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/doctor.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="logo">
+            <span class="logo-title">⚡ OPD Console</span>
+            <span id="welcomeMsg" class="welcome-msg">Welcome, doctor</span>
+        </div>
+        
+        <div class="status-controls">
+            <span class="status-label">Status:</span>
+            <button type="button" onclick="setStatus('AVAILABLE')" class="status-btn btn-online" id="btn-available">🟢 Active</button>
+            <button type="button" onclick="setStatus('BREAK')" class="status-btn btn-break" id="btn-break">☕ Break</button>
+            <button type="button" onclick="setStatus('OFFLINE')" class="status-btn btn-offline" id="btn-offline">🔴 Offline</button>
+            <button type="button" onclick="logout()" class="btn-logout">Logout ➜</button>
+        </div>
+    </div>
+
+    <div class="dashboard-wrapper">
+        <div class="queue-sidebar">
+            <div class="queue-header">
+                <h3>Waiting Room</h3>
+                <p id="queueCount" class="u-text-grey u-text-small">--</p>
+            </div>
+            <ul class="patient-list" id="queueList"></ul>
+        </div>
+
+        <div class="clinical-area">
+            <div class="patient-card">
+                <div class="card-header">
+                    <div>
+                        <h1 id="displayName">Queue Empty</h1>
+                        <div id="symptomBox" class="u-hidden u-mt-5 vitals">
+                            <span class="tag" id="displaySymptoms">--</span>
+                            <span class="tag u-bg-grey-light u-text-dark-grey" id="displayMobile">--</span>
+                        </div>
+                    </div>
+                    <span class="token" style="font-size: 3rem; background: none; border: none;" id="displayToken">--</span>
+                </div>
+
+                <div class="prescription-pad u-hidden" id="clinicalSection">
+                    <label style="font-weight: bold; color: #555;">📝 Prescription / Clinical Notes</label>
+                    <textarea id="prescriptionBox" placeholder="e.g. Tab Dolo 650mg SOS, Drink warm water..."></textarea>
+                </div>
+
+                <div class="action-buttons u-mt-20 u-hidden" id="actionSection">
+                    <button type="button" class="btn-action btn-view" onclick="callPatient()">🔔 Call</button>
+                    <button type="button" class="btn-action btn-nudge" onclick="swapPatient()">⤵ Swap</button>
+                    <button type="button" class="btn-action btn-finish" onclick="completeVisit()">✅ Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="js/script.js"></script>
+    <script src="js/doctor.js"></script>
+</body>
+</html>

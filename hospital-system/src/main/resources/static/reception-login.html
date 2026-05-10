@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reception Login | PulseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reception.css">
+</head>
+<body class="admin-login-body"> <!-- Add a specific class in your CSS for the gradient background if needed -->
+
+    <div class="login-card">
+        <div class="logo">⚡ PulseSync <span class="badge">ADMIN</span></div>
+        <p class="u-text-grey u-text-small u-mb-20">Secure Staff Access Only</p>
+        
+        <form id="adminLoginForm">
+            <div class="input-group">
+                <label>Admin Email</label>
+                <input type="email" id="adminEmail" placeholder="admin@pulse.com" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="adminPassword" placeholder="••••••••" required>
+            </div>
+            <div class="error-msg u-hidden" id="adminError"></div>
+            <button type="submit" class="btn-admin u-mt-10">Unlock Dashboard</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/reception.js"></script>
+</body>
+</html>

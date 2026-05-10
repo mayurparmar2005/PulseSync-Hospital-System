@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to PulseSync – the intelligent hospital OPD queue management system for patients and doctors.">
+    <title>Login | PulseSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration:none; color:inherit;">
+                <span style="color:#0056b3; font-weight:bold;">⚡ PulseSync</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+
+            <div class="role-tabs" role="tablist">
+                <button type="button" id="tab-patient" class="tab active" onclick="switchTab('patient')">Patient</button>
+                <button type="button" id="tab-doctor" class="tab" onclick="switchTab('doctor')">Doctor</button>
+            </div>
+
+            <div id="patient-form" class="form-section">
+                
+                <div id="otp-request-step">
+                    <h2>Patient Access</h2>
+                    <p>Enter your mobile number to receive a secure OTP.</p>
+
+                    <form id="requestOtpForm" onsubmit="requestOtp(event)">
+                        <div class="input-group">
+                            <label for="pMobile">Mobile Number</label>
+                            <input type="tel" id="pMobile" placeholder="e.g. 9876543210" pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+                        <div class="error-msg" id="patientErrorStep1"></div>
+                        <button type="submit" id="btnRequestOtp" class="btn-full">Send Secure OTP</button>
+                    </form>
+                    
+                    <div class="signup-link">
+                        New patient? We will create your account automatically!
+                    </div>
+                </div>
+
+                <div id="otp-verify-step" class="u-hidden">
+                    <h2>Verify OTP</h2>
+                    <p>Enter the 6-digit code sent to <strong id="displayMobile"></strong>.</p>
+
+                    <form id="verifyOtpForm" onsubmit="verifyOtp(event)">
+                        <div class="input-group">
+                            <label for="pOtp">Secure Code</label>
+                            <input type="text" id="pOtp" placeholder="123456" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required style="text-align: center; font-size: 1.5rem; letter-spacing: 5px;">
+                        </div>
+                        <div class="error-msg" id="patientErrorStep2"></div>
+                        <button type="submit" id="btnVerifyOtp" class="btn-full">Verify & Login</button>
+                    </form>
+
+                    <div class="signup-link u-mt-20">
+                        <a href="#" onclick="resetToStep1()">← Change Mobile Number</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="doctor-form" class="form-section u-hidden">
+                <h2>Doctor Station</h2>
+                <p>Secure Clinical Access.</p>
+
+                <form id="doctorLoginForm" onsubmit="handleDoctorLogin(event)">
+                    <div class="input-group">
+                        <label for="dEmail">Email ID</label>
+                        <input type="email" id="dEmail" placeholder="doctor@pulse.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="dPassword">Password</label>
+                        <input type="password" id="dPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="error-msg" id="doctorError"></div>
+                    <button type="submit" id="doctorSubmitBtn" class="btn-full btn-doctor">Secure Login</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

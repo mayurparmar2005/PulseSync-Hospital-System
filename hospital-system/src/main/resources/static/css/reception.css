@@ -1,0 +1,314 @@
+/* =========================================
+   1. RECEPTION LOGIN PAGE
+   ========================================= */
+.admin-login-body { 
+    background: linear-gradient(135deg, #0056b3 0%, #004494 100%); 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 0;
+}
+
+/* The Main White Box */
+.login-card { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+    width: 380px; 
+    text-align: center; 
+}
+
+/* The Input Fields Inside the Box */
+.login-card .input-group { 
+    margin-bottom: 20px; 
+    text-align: left;
+}
+
+.login-card .input-group label { 
+    display: block; 
+    font-weight: bold; 
+    margin-bottom: 8px; 
+    color: #444; 
+    font-size: 0.9rem; 
+}
+
+.login-card .input-group input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    box-sizing: border-box; 
+    outline: none;
+}
+
+.login-card .input-group input:focus {
+    border-color: #0056b3;
+}
+
+/* The Login Button */
+.btn-admin { 
+    width: 100%; 
+    padding: 14px; 
+    background: #0056b3; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.btn-admin:hover { 
+    background: #004494; 
+}
+
+.back-link { 
+    display: block; 
+    margin-top: 20px; 
+    color: #888; 
+    font-size: 0.9rem; 
+    font-weight: 500;
+}
+
+.back-link:hover { 
+    color: #64a9f4; 
+    text-decoration: underline; 
+}
+
+
+/* =========================================
+   2. WALK-IN REGISTRATION (rc_dashboard)
+   ========================================= */
+.dashboard-container {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+}
+
+.form-section {
+    flex: 1.5; 
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    min-width: 320px;
+}
+
+.form-section h2 { color: #0056b3; margin-bottom: 5px;}
+.form-section p { color: #666; margin-bottom: 25px; font-size: 0.9rem; }
+
+/* ID Card Preview Layout */
+.card-preview {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.id-card {
+    width: 320px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.card-header {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.qr-code img { 
+    width: 80px; 
+    height: 80px; 
+    border-radius: 5px; 
+    border: 1px solid #ddd; 
+    padding: 4px; 
+}
+
+.details h3 { margin: 0; color: #333; font-size: 1.1rem; }
+.abha-text { 
+    font-family: monospace; 
+    color: #555; 
+    background: #eee; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-size: 0.85rem; 
+    margin: 5px 0; 
+    display: inline-block; 
+}
+
+.meta { color: #777; font-size: 0.85rem; margin-top: 5px; }
+
+.card-footer {
+    background: #ffebee;
+    color: #c62828;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.token-box {
+    background: #e3f2fd; 
+    padding: 20px; 
+    border-radius: 12px; 
+    border: 2px solid #0056b3; 
+    text-align: center;
+}
+
+/* =========================================
+   3. LIVE MONITOR GRID
+   ========================================= */
+.monitor-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px; 
+    margin-top: 20px; 
+}
+
+.doc-card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    border-top: 5px solid #0056b3; 
+}
+
+.status-dot { 
+    height: 12px; 
+    width: 12px; 
+    border-radius: 50%; 
+    display: inline-block; 
+    margin-right: 5px; 
+}
+
+.stat-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 15px; 
+    background: #f8f9fa; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+.big-num { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #0056b3; 
+    display: block;
+}
+
+.label { 
+    font-size: 0.8rem; 
+    color: #666; 
+    display: block; 
+}
+
+/* =========================================
+   4. PATIENT RECORDS TABLE
+   ========================================= */
+.filter-bar { 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+.filter-bar input, .filter-bar select { 
+    padding: 10px 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 0.95rem; 
+}
+
+.filter-bar input { width: 280px; }
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: white; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border-radius: 10px; 
+    overflow: hidden; 
+}
+
+th, td { 
+    padding: 15px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+}
+
+th { background: #0056b3; color: white; }
+tr:hover { background: #f1f1f1; }
+
+/* =========================================
+   5. MODALS & POPUPS
+   ========================================= */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); 
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: 0.2s;
+}
+
+.close-btn:hover { color: #e63946; }
+
+/* Hide everything except the modal when printing */
+@media print {
+    body * { visibility: hidden; }
+    #rxModal, #rxModal * { visibility: visible; }
+    #rxModal { position: absolute; left: 0; top: 0; background: none; }
+    .modal-content { box-shadow: none; border: 1px solid #000; width: 100% !important; }
+    .close-btn, button { display: none !important; }
+}

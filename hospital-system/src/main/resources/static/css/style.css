@@ -1,0 +1,157 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-blue: #0056b3;
+    --dark-blue: #004494;
+    --emergency-red: #e63946;
+    --text-dark: #333333;
+    --text-grey: #666666;
+    --bg-light: #f4f7f6;
+    --white: #ffffff;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-light); 
+    color: var(--text-dark); 
+    line-height: 1.6; 
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   2. NAVIGATION BAR
+   ========================================= */
+/* =========================================
+   2. NAVIGATION BAR (Glassmorphism)
+   ========================================= */
+.navbar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 40px; 
+    
+    background: rgba(255, 255, 255, 0.75); /* Semi-transparent white */
+    backdrop-filter: blur(12px);           /* Blurs the background behind it */
+    -webkit-backdrop-filter: blur(12px);   /* Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Subtle frosted edge */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+    
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); display: flex; align-items: center; gap: 10px; }
+
+.nav-links { display: flex; gap: 25px; align-items: center; list-style: none; }
+.nav-links a { color: #555; font-weight: 500; transition: 0.3s; font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary-blue); font-weight: 700; }
+
+.nav-buttons { display: flex; gap: 15px; }
+.btn { padding: 10px 24px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s ease; text-decoration: none;}
+.btn-login { background-color: transparent; border: 2px solid var(--primary-blue); color: var(--primary-blue); }
+.btn-login:hover { background-color: var(--primary-blue); color: var(--white); }
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero {
+    height: 60vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 86, 179, 0.85), rgba(0, 68, 148, 0.9)), 
+                url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+    padding-bottom: 80px; 
+}
+
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 700; line-height: 1.2; }
+.hero-content p { font-size: 1.2rem; opacity: 0.9; }
+
+/* =========================================
+   4. OVERLAPPING SERVICE GRID
+   ========================================= */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 10%;
+    margin-top: -100px; /* Pulls cards UP over the hero image */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 80px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card.emergency { border-top-color: var(--emergency-red); }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+
+.service-icon { font-size: 4rem; margin-bottom: 20px; }
+.service-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--text-dark); }
+.service-card p { color: var(--text-grey); margin-bottom: 25px; font-size: 1.05rem; line-height: 1.5; }
+
+.btn-service {
+    display: inline-block;
+    padding: 14px 30px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-service:hover { background: var(--dark-blue); }
+.btn-service.btn-red { background: var(--emergency-red); }
+.btn-service.btn-red:hover { background: #c62828; }
+.btn-service.btn-outline { background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); }
+.btn-service.btn-outline:hover { background: var(--primary-blue); color: white; }
+
+/* =========================================
+   5. FOOTER & UTILITY CLASSES
+   ========================================= */
+footer { background-color: #222; color: #888; text-align: center; padding: 30px; font-size: 0.9rem; }
+
+.u-hidden { display: none !important; }
+.u-text-muted { color: #888 !important; }
+.u-text-grey { color: #666 !important; }
+.u-text-dark-grey { color: #555 !important; }
+.u-text-small { font-size: 0.9rem !important; }
+.u-mt-5 { margin-top: 5px !important; }
+.u-mt-10 { margin-top: 10px !important; }
+.u-mt-20 { margin-top: 20px !important; }
+.u-bg-grey-light { background: #eee !important; }
